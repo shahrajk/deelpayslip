@@ -131,7 +131,7 @@ const PayslipDetails: React.FC = () => {
         <Paragraph>
           Period: {payslip.fromDate} to {payslip.toDate}
         </Paragraph>
-        <Button onClick={handleDownload}>Download Payslip</Button>
+        <Button onClick={handleDownloadClick}>Download Payslip</Button>
       </DetailsContainer>
     </PageContainer>
   );
