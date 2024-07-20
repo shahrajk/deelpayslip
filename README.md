@@ -1,22 +1,86 @@
-# Getting Started with Create React App
+# Getting Started with Create React App and Capacitor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and enhanced with [Capacitor](https://capacitorjs.com/) to support native functionality on iOS and Android.
 
-## Available Scripts
+## Running the Project
 
-In the project directory, you can run:
+To run this project on different platforms, follow the steps below after cloning the repository from GitHub:
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
+- Node.js and npm installed
+- Capacitor CLI installed globally (`npm install -g @capacitor/cli`)
+- Android Studio (for Android development)
+- Xcode (for iOS development)
+
+### Clone the Repository
+
+- git clone https://github.com/your-username/your-repo-name.git
+- cd your-repo-name
+
+```bash
+npm install
+```
+
+### Run on Web
+
+```bash
+npm start
+```
+
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### Run on Android
+
+1. Add the Android platform:
+
+   ```bash
+   npx cap add android
+   ```
+
+2. Sync the project:
+
+   ```bash
+   npx cap sync
+   ```
+
+3. Open the project in Android Studio:
+
+   ```bash
+    npx cap open android
+   ```
+
+4. Build and run the project from Android Studio.
+
+### Run on iOS
+
+1. Add the iOS platform:
+
+   ```bash
+   npx cap add ios
+   ```
+
+2. Sync the project:
+
+   ```bash
+   npx cap sync
+   ```
+
+3. Open the project in Xcode:
+
+   ```bash
+    npx cap open ios
+   ```
+
+4. Build and run the project from Xcode.
+
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
@@ -35,12 +99,56 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc.) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point, you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and medium deployments, and you shouldn’t feel obligated to use this feature. However, we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Capacitor
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project integrates Capacitor to enable cross-platform functionality. For more information on Capacitor, visit the [official documentation](https://capacitorjs.com/docs).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `npx cap sync`
+
+Synchronizes your web app with native projects.
+
+### `npx cap open ios`
+
+Opens the iOS project in Xcode for building and running on an iOS device or simulator.
+
+### `npx cap open android`
+
+Opens the Android project in Android Studio for building and running on an Android device or emulator.
+
+### `npx cap serve`
+
+Starts a live-reload server on your local network and opens it in the default browser.
+
+## Download Functionality
+
+This project includes functionality to download and open payslip files across different platforms (web, iOS, Android).
+
+### Web
+
+On the web, the payslip files can be downloaded directly using a Blob and an anchor tag.
+
+### iOS and Android
+
+On mobile platforms, the payslip files are fetched and written to the device's filesystem using Capacitor's Filesystem API. Files can then be opened using the appropriate native application.
+
+### Directory Descriptions
+
+- **public/**: Contains the static assets and the main HTML file for the web application.
+- **src/**: Contains the source code of the React application.
+  - **components/**: Contains the React components.
+    - **PayslipListItem.tsx**: Represents an individual payslip in the list.
+  - **utils/**: Contains utility functions and mock data.
+    - **mockData.ts**: Provides sample payslip data for development purposes.
+  - **pages/**: Contains page-level components.
+    - **PayslipDetails.tsx**: Displays and handles the download of a specific payslip.
+    - **PayslipList.tsx**: Displays a list of all available payslips.
+  - **App.tsx**: The main application component that sets up routing and application structure.
+  - **index.tsx**: The entry point for the React application.
+- **android/**: Contains the Android project files generated by Capacitor.
+- **ios/**: Contains the iOS project files generated by Capacitor.
+- **capacitor.config.ts**: Configuration file for Capacitor.
+- **package.json**: Configuration file for npm, listing dependencies and scripts.
