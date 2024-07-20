@@ -40,6 +40,7 @@ You will also see any lint errors in the console.
 
    ```bash
    npx cap add android
+   npm run build
    ```
 
 2. Sync the project:
@@ -62,6 +63,7 @@ You will also see any lint errors in the console.
 
    ```bash
    npx cap add ios
+   npm run build
    ```
 
 2. Sync the project:
